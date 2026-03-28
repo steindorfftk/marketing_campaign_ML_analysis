@@ -34,29 +34,68 @@ A second LightGBM model then classifies **Persuadables vs Sure Things** to under
 
 ## Key Results
 
-- **Stage 1 ROC-AUC**: model successfully separates responders from non-responders well above baseline
-- **Campaign ROI improvement**: by targeting only Persuadables, the model reduces contact costs significantly compared to a blind campaign
-- **Top drivers of response** (from SHAP):
-  - Higher income customers respond more
-  - Wine and meat spend are strong positive signals
-  - Customers with teenagers at home are less likely to respond
-  - Recency matters — recently active customers convert better
+### Stage 1 — Model Performance
 
-- **Persuadables profile** (vs Sure Things):
-  - Slightly lower income and spend
-  - More likely to have kids/teens at home
-  - Less tenure — newer customers who haven't fully committed
+![Stage 1 Confusion Matrix and ROC](images/01_stage1_confusion_roc.png)
+
+### What Drives Response? (SHAP — Stage 1)
+
+![SHAP Bar Stage 1](images/02_shap_bar_stage1.png)
+
+![SHAP Beeswarm Stage 1](images/03_shap_beeswarm_stage1.png)
+
+**Top drivers of response:**
+- Higher **income** customers respond significantly more
+- **Wine and meat spend** are the strongest positive signals
+- Customers with **teenagers at home** are less likely to respond
+- **Recency** matters — recently active customers convert better
+- Having a **partner** slightly increases response likelihood
 
 ---
 
-## Business Impact
+## Customer Profiling
 
-| Scenario | Cost | Revenue | ROI |
-|---|---|---|---|
-| Contact everyone (no model) | High | Moderate | Low |
-| Target Persuadables only (model) | Reduced | Maintained | Higher |
+### Response Rate by Demographics
 
-The model identifies which ~X% of the customer base deserves campaign spend, cutting wasted contacts while maintaining conversion volume.
+![Response by Partner Status](images/04_response_by_partner.png)
+
+![Wine Spend by Response](images/05_wine_spend_by_response.png)
+
+![Feature Analysis Grid](images/06_feature_analysis_grid.png)
+
+---
+
+## The Goldilocks Segmentation
+
+![Segment Distribution](images/09_goldilocks_segmentation.png)
+
+### What Differentiates the Segments?
+
+![ANOVA Top Features](images/08_anova_top_features.png)
+
+---
+
+## Stage 2 — Persuadables vs Sure Things
+
+![Stage 2 Confusion Matrix and ROC](images/10_stage2_confusion_roc.png)
+
+### What Makes a Persuadable? (SHAP — Stage 2)
+
+![SHAP Bar Stage 2](images/11_shap_bar_stage2.png)
+
+![SHAP Beeswarm Stage 2](images/12_shap_beeswarm_stage2.png)
+
+### Age Comparison: Persuadables vs Sure Things
+
+![Age Comparison](images/13_age_comparison_segments.png)
+
+---
+
+## Business Impact — KPI Dashboard
+
+![KPI Dashboard](images/14_kpi_dashboard.png)
+
+By targeting only Persuadables the model **reduces campaign cost** while maintaining conversion volume — avoiding both wasted spend on Lost Causes and unnecessary contacts with Sure Things who would convert regardless.
 
 ---
 
@@ -64,10 +103,10 @@ The model identifies which ~X% of the customer base deserves campaign spend, cut
 
 - **Imbalance handling**: `class_weight='balanced'` and `scale_pos_weight` across all models
 - **Hyperparameter tuning**: Optuna with 50 trials per model, optimizing PR-AUC
-- **Models compared**: LightGBM, XGBoost, CatBoost, Logistic Regression, SVM, MLP
+- **Models compared**: LightGBM ✅, XGBoost, CatBoost, Logistic Regression, SVM, MLP
 - **Explainability**: SHAP values for both stages — bar plots, beeswarm, and dependence plots
-- **Threshold optimization**: precision-recall curve used to find optimal classification cutoff beyond default 0.5
-- **Feature engineering**: customer age from birth year, tenure in days from join date, partner status simplified to binary
+- **Threshold optimization**: precision-recall curve used to find the optimal classification cutoff
+- **Feature engineering**: customer age from birth year, tenure in days from join date, partner status as binary
 
 ---
 
@@ -79,7 +118,7 @@ The model identifies which ~X% of the customer base deserves campaign spend, cut
 
 ## Stack
 
-`Python` · `LightGBM` · `XGBoost` · `CatBoost` · `Optuna` · `SHAP` · `Scikit-learn` · `Pandas` · `Matplotlib` · `Seaborn`
+`Python` · `LightGBM` · `XGBoost` · `CatBoost` · `Optuna` · `SHAP` · `Scikit-learn` · `Pandas` · `Matplotlib` · `Seaborn` · `SciPy`
 
 ---
 
