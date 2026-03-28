@@ -36,13 +36,13 @@ A second LightGBM model then classifies **Persuadables vs Sure Things** to under
 
 ### Stage 1 — Model Performance
 
-![Stage 1 Confusion Matrix and ROC](images/01_stage1_confusion_roc.png)
+![Stage 1 Confusion Matrix and ROC](plots/01_stage1_confusion_roc.png)
 
 ### What Drives Response? (SHAP — Stage 1)
 
-![SHAP Bar Stage 1](images/02_shap_bar_stage1.png)
+![SHAP Bar Stage 1](plots/02_shap_bar_stage1.png)
 
-![SHAP Beeswarm Stage 1](images/03_shap_beeswarm_stage1.png)
+![SHAP Beeswarm Stage 1](plots/03_shap_beeswarm_stage1.png)
 
 **Top drivers of response:**
 - Higher **income** customers respond significantly more
@@ -57,43 +57,43 @@ A second LightGBM model then classifies **Persuadables vs Sure Things** to under
 
 ### Response Rate by Demographics
 
-![Response by Partner Status](images/04_response_by_partner.png)
+![Response by Partner Status](plots/04_response_by_partner.png)
 
-![Wine Spend by Response](images/05_wine_spend_by_response.png)
+![Wine Spend by Response](plots/05_wine_spend_by_response.png)
 
-![Feature Analysis Grid](images/06_feature_analysis_grid.png)
+![Feature Analysis Grid](plots/06_feature_analysis_grid.png)
 
 ---
 
 ## The Goldilocks Segmentation
 
-![Segment Distribution](images/09_goldilocks_segmentation.png)
+![Segment Distribution](plots/09_goldilocks_segmentation.png)
 
 ### What Differentiates the Segments?
 
-![ANOVA Top Features](images/08_anova_top_features.png)
+![ANOVA Top Features](plots/08_anova_top_features.png)
 
 ---
 
 ## Stage 2 — Persuadables vs Sure Things
 
-![Stage 2 Confusion Matrix and ROC](images/10_stage2_confusion_roc.png)
+![Stage 2 Confusion Matrix and ROC](plots/10_stage2_confusion_roc.png)
 
 ### What Makes a Persuadable? (SHAP — Stage 2)
 
-![SHAP Bar Stage 2](images/11_shap_bar_stage2.png)
+![SHAP Bar Stage 2](plots/11_shap_bar_stage2.png)
 
-![SHAP Beeswarm Stage 2](images/12_shap_beeswarm_stage2.png)
+![SHAP Beeswarm Stage 2](plots/12_shap_beeswarm_stage2.png)
 
 ### Age Comparison: Persuadables vs Sure Things
 
-![Age Comparison](images/13_age_comparison_segments.png)
+![Age Comparison](plots/13_age_comparison_segments.png)
 
 ---
 
 ## Business Impact — KPI Dashboard
 
-![KPI Dashboard](images/14_kpi_dashboard.png)
+![KPI Dashboard](plots/14_kpi_dashboard.png)
 
 By targeting only Persuadables the model **reduces campaign cost** while maintaining conversion volume — avoiding both wasted spend on Lost Causes and unnecessary contacts with Sure Things who would convert regardless.
 
